@@ -1,0 +1,13 @@
+.data-view-card {
+  gap: 12px;
+  &__item {
+    flex: 0 1 calc(50% - 6px);
+    border: 1px solid #000;
+    padding: 12px;
+    text-align: center;
+  }
+
+  &__name {
+    margin-bottom: 24px;
+  }
+}

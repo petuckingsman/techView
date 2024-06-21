@@ -1,0 +1,38 @@
+<div class="data-view" [formGroup]="form">
+  <div class="flex justify-sb">
+    <app-search formControlName="search"></app-search>
+
+    <div class="button-group">
+      <button *ngFor="let item of layoutConfig"
+              class="button"
+              [class.active]="layout === item"
+              (click)="layout = item">
+        {{ item }}
+      </button>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <app-data-view-list *ngIf="data && layout === DataViewLayout.List" [data]="data.items"></app-data-view-list>
+  <app-data-view-card *ngIf="data && layout === DataViewLayout.Card" [data]="data.items"></app-data-view-card>
+
+  <div class="divider"></div>
+
+  <div class="flex justify-sb">
+    <div>
+      <div class="button-group" *ngIf="data">
+        <button *ngFor="let item of getPages | executeWith : data.total_count : form.value.itemsPerPage"
+                class="button"
+                [class.active]="form.controls.pageNumber.value === item"
+                (click)="form.controls.pageNumber.setValue(item)">
+          {{ item }}
+        </button>
+      </div>
+    </div>
+
+    <select class="select" formControlName="itemsPerPage">
+      <option *ngFor="let item of optionsPerPage">{{ item }}</option>
+    </select>
+  </div>
+</div>

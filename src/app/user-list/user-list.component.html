@@ -1,0 +1,7 @@
+<h1>User list</h1>
+
+<div class="divider"></div>
+
+<app-data-view [data]="userListService.getUserList | executeWith : params | async"
+               (paramsChange)="params = $event">
+</app-data-view>

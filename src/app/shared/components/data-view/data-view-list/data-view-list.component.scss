@@ -1,0 +1,7 @@
+.data-view-list__item {
+  border: 1px solid #000;
+  padding: 12px;
+  &:not(:last-child) {
+    border-bottom: none;
+  }
+}

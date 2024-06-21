@@ -1,0 +1,4 @@
+<div class="data-view-list__item flex justify-sb" *ngFor="let item of data">
+  <div>{{item.user_name}}</div>
+  <button class="button" (click)="delete(item.id)">delete</button>
+</div>

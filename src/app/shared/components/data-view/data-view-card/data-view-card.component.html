@@ -1,0 +1,6 @@
+<div class="data-view-card flex flex-wrap">
+  <div class="data-view-card__item" *ngFor="let item of data">
+    <div class="data-view-card__name">{{item.user_name}}</div>
+    <button class="button" (click)="delete(item.id)">delete</button>
+  </div>
+</div>
