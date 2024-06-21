@@ -14,10 +14,13 @@
 
   <div class="divider"></div>
 
-  <app-data-view-list *ngIf="data && layout === DataViewLayout.List" [data]="data.items"></app-data-view-list>
-  <app-data-view-card *ngIf="data && layout === DataViewLayout.Card" [data]="data.items"></app-data-view-card>
+  <app-data-view-list *ngIf="!loader && data && layout === DataViewLayout.List" [data]="data.items">
+  </app-data-view-list>
 
-  <div *ngIf="!data">loading...</div>
+  <app-data-view-card *ngIf="!loader && data && layout === DataViewLayout.Card" [data]="data.items">
+  </app-data-view-card>
+
+  <div *ngIf="loader">loading...</div>
 
   <div class="divider"></div>
 

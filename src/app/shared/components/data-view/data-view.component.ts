@@ -4,9 +4,9 @@ import { DataViewLayout } from "./data-view-layout";
 import { CommonModule  } from "@angular/common";
 import { DataViewListComponent } from "./data-view-list/data-view-list.component";
 import { DataViewCardComponent } from "./data-view-card/data-view-card.component";
-import { ListRequest, UserListResponseDto } from "../../api/users.api";
+import { UserListResponseDto } from "../../api/users.api";
 import { ExecuteWithPipe } from "../../pipes/execute-with.pipe";
-import { FormBuilder, FormControl, ReactiveFormsModule } from "@angular/forms";
+import { FormBuilder, ReactiveFormsModule } from "@angular/forms";
 import { debounceTime, ReplaySubject, takeUntil } from "rxjs";
 
 @Component({
@@ -26,6 +26,7 @@ import { debounceTime, ReplaySubject, takeUntil } from "rxjs";
 })
 export class DataViewComponent implements OnInit, OnDestroy {
   @Input() data!: UserListResponseDto | null;
+  @Input() loader: boolean | null = false;
   @Output() paramsChange = new EventEmitter();
 
   destroy$ = new ReplaySubject(1);

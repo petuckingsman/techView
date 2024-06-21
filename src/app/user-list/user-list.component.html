@@ -3,5 +3,6 @@
 <div class="divider"></div>
 
 <app-data-view [data]="userListService.getUserList | executeWith : params | async"
-               (paramsChange)="params = $event">
+               (paramsChange)="params = $event"
+               [loader]="userListService.userListLoaderObs$ | async">
 </app-data-view>
