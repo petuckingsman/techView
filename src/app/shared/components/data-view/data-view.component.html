@@ -17,18 +17,18 @@
   <app-data-view-list *ngIf="data && layout === DataViewLayout.List" [data]="data.items"></app-data-view-list>
   <app-data-view-card *ngIf="data && layout === DataViewLayout.Card" [data]="data.items"></app-data-view-card>
 
+  <div *ngIf="!data">loading...</div>
+
   <div class="divider"></div>
 
   <div class="flex justify-sb">
-    <div>
-      <div class="button-group" *ngIf="data">
-        <button *ngFor="let item of getPages | executeWith : data.total_count : form.value.itemsPerPage"
-                class="button"
-                [class.active]="form.controls.pageNumber.value === item"
-                (click)="form.controls.pageNumber.setValue(item)">
-          {{ item }}
-        </button>
-      </div>
+    <div class="button-group" *ngIf="data">
+      <button *ngFor="let item of getPages | executeWith : data.total_count : form.value.itemsPerPage"
+              class="button"
+              [class.active]="form.controls.pageNumber.value === item"
+              (click)="form.controls.pageNumber.setValue(item)">
+        {{ item }}
+      </button>
     </div>
 
     <select class="select" formControlName="itemsPerPage">
